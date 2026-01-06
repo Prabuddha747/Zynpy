@@ -9,8 +9,8 @@ const Footer = () => {
       id="support"
       className="footer"
       sx={{
-        background: '#1F2937',
-        color: 'white',
+        background: '#000000',
+        color: 'rgb(124, 58, 237)',
         padding: { xs: '3rem 0 1.5rem', md: '4rem 0 2rem' },
         position: 'relative',
       }}
@@ -33,7 +33,7 @@ const Footer = () => {
                 fontSize: '1.5rem',
                 fontWeight: 700,
                 marginBottom: '1rem',
-                background: 'linear-gradient(135deg, #4F46E5, #7C3AED)',
+                background: 'linear-gradient(135deg, #4F46E5,rgb(124, 58, 237))',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -45,7 +45,7 @@ const Footer = () => {
               variant="body2"
               className="footer-tagline"
               sx={{
-                color: 'rgba(255, 255, 255, 0.7)',
+                color: 'rgb(124, 58, 237)',
                 fontSize: '0.95rem',
                 lineHeight: 1.6,
               }}
@@ -62,16 +62,16 @@ const Footer = () => {
                 fontSize: '1.1rem',
                 fontWeight: 600,
                 marginBottom: '1rem',
-                color: 'white',
+                color: 'rgb(124, 58, 237)',
               }}
             >
               Product
             </Typography>
             <Box component="ul" className="footer-links" sx={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', padding: 0, margin: 0 }}>
-              <li><Link href="#how-it-works" sx={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>How It Works</Link></li>
-              <li><Link href="#features" sx={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>Features</Link></li>
-              <li><Link href="#for-hosts" sx={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>For Hosts</Link></li>
-              <li><Link href="#transparency" sx={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>Transparency</Link></li>
+              <li><Link href="#how-it-works" sx={{ color: 'rgb(124, 58, 237)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>How It Works</Link></li>
+              <li><Link href="#features" sx={{ color: 'rgb(124, 58, 237)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>Features</Link></li>
+              <li><Link href="#for-hosts" sx={{ color: 'rgb(124, 58, 237)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>For Hosts</Link></li>
+              <li><Link href="#transparency" sx={{ color: 'rgb(124, 58, 237)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>Transparency</Link></li>
             </Box>
           </Box>
           
@@ -83,7 +83,7 @@ const Footer = () => {
                 fontSize: '1.1rem',
                 fontWeight: 600,
                 marginBottom: '1rem',
-                color: 'white',
+                color: 'rgb(124, 58, 237)',
               }}
             >
               Support
@@ -94,7 +94,7 @@ const Footer = () => {
                   href="https://docs.google.com/forms/d/e/1FAIpQLScKpdvnOgR4mTCRSN40AmDgY4HmvBeaMzHYw-zK8dFWoGeu9Q/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
-                  sx={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}
+                  sx={{ color: 'rgb(124, 58, 237)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}
                 >
                   Contact Us
                 </Link>
@@ -107,7 +107,7 @@ const Footer = () => {
           className="footer-bottom"
           sx={{
             paddingTop: '2rem',
-            borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+            borderTop: '1px solid rgb(124, 58, 237)',
             textAlign: 'center',
           }}
         >
@@ -115,7 +115,7 @@ const Footer = () => {
             variant="body2"
             className="footer-copyright"
             sx={{
-              color: 'rgba(255, 255, 255, 0.6)',
+              color: 'rgb(124, 58, 237)',
               fontSize: '0.9rem',
             }}
           >

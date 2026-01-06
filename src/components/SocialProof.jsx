@@ -15,7 +15,7 @@ const testimonials = [
   {
     id: 2,
     text: "Everyone knew where the money went",
-    author: "Mayank",
+    author: "Raja Vignesh",
     role: "Trip Planner"
   },
   {
