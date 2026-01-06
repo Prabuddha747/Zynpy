@@ -130,10 +130,16 @@ app.get('/api/payments', (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Payment verification server running on port ${PORT}`);
-});
+// Export for Vercel serverless functions
+module.exports = app;
+
+// Only start server if not in Vercel environment
+if (process.env.VERCEL !== '1') {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Payment verification server running on port ${PORT}`);
+    });
+}
 
 
 // ============================================
