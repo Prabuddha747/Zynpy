@@ -1,8 +1,12 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@mui/material'
+import ComingSoonModal from './ComingSoonModal'
 import './Hero.css'
 
 const Hero = () => {
+  const [modalOpen, setModalOpen] = useState(false)
+
   return (
     <section className="hero">
       <div className="hero-background">
@@ -53,6 +57,7 @@ const Hero = () => {
                 <Button
                   variant="contained"
                   size="large"
+                  onClick={() => setModalOpen(true)}
                   sx={{
                     background: 'linear-gradient(135deg, #4F46E5, #7C3AED)',
                     boxShadow: '0 8px 25px rgba(79, 70, 229, 0.3)',
@@ -108,6 +113,11 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
+      <ComingSoonModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        platform="App"
+      />
     </section>
   )
 }

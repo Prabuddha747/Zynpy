@@ -1,14 +1,18 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { FaAndroid, FaApple } from 'react-icons/fa'
 import { Button, Typography, Box, useTheme } from '@mui/material'
+import ComingSoonModal from './ComingSoonModal'
 import './FinalCTA.css'
 
 const FinalCTA = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const theme = useTheme()
+  const [androidModalOpen, setAndroidModalOpen] = useState(false)
+  const [iosModalOpen, setIosModalOpen] = useState(false)
 
   return (
     <Box
@@ -80,6 +84,7 @@ const FinalCTA = () => {
                 variant="outlined"
                 size="large"
                 startIcon={<FaAndroid size={24} />}
+                onClick={() => setAndroidModalOpen(true)}
                 sx={{
                   minWidth: 200,
                   py: 1.5,
@@ -114,6 +119,7 @@ const FinalCTA = () => {
                 variant="outlined"
                 size="large"
                 startIcon={<FaApple size={24} />}
+                onClick={() => setIosModalOpen(true)}
                 sx={{
                   minWidth: 200,
                   py: 1.5,
@@ -140,6 +146,16 @@ const FinalCTA = () => {
           </motion.div>
         </motion.div>
       </div>
+      <ComingSoonModal
+        open={androidModalOpen}
+        onClose={() => setAndroidModalOpen(false)}
+        platform="Android"
+      />
+      <ComingSoonModal
+        open={iosModalOpen}
+        onClose={() => setIosModalOpen(false)}
+        platform="iOS"
+      />
     </Box>
   )
 }

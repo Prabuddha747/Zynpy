@@ -10,8 +10,8 @@ const Footer = () => {
       id="support"
       className="footer"
       sx={{
-        background: theme.palette.mode === 'dark' ? '#111827' : '#1F2937',
-        color: 'white',
+        background: theme.palette.mode === 'dark' ? '#F9FAFB' : '#1F2937',
+        color: theme.palette.mode === 'dark' ? '#1F2937' : 'white',
         padding: { xs: '3rem 0 1.5rem', md: '4rem 0 2rem' },
         position: 'relative',
       }}
@@ -46,7 +46,7 @@ const Footer = () => {
               variant="body2"
               className="footer-tagline"
               sx={{
-                color: 'rgba(255, 255, 255, 0.7)',
+                color: theme.palette.mode === 'dark' ? '#6B7280' : 'rgba(255, 255, 255, 0.7)',
                 fontSize: '0.95rem',
                 lineHeight: 1.6,
               }}
@@ -63,16 +63,16 @@ const Footer = () => {
                 fontSize: '1.1rem',
                 fontWeight: 600,
                 marginBottom: '1rem',
-                color: 'white',
+                color: theme.palette.mode === 'dark' ? '#1F2937' : 'white',
               }}
             >
               Product
             </Typography>
             <Box component="ul" className="footer-links" sx={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', padding: 0, margin: 0 }}>
-              <li><Link href="#how-it-works" sx={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>How It Works</Link></li>
-              <li><Link href="#features" sx={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>Features</Link></li>
-              <li><Link href="#for-hosts" sx={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>For Hosts</Link></li>
-              <li><Link href="#transparency" sx={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>Transparency</Link></li>
+              <li><Link href="#how-it-works" sx={{ color: theme.palette.mode === 'dark' ? '#6B7280' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#1F2937' : 'white' } }}>How It Works</Link></li>
+              <li><Link href="#features" sx={{ color: theme.palette.mode === 'dark' ? '#6B7280' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#1F2937' : 'white' } }}>Features</Link></li>
+              <li><Link href="#for-hosts" sx={{ color: theme.palette.mode === 'dark' ? '#6B7280' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#1F2937' : 'white' } }}>For Hosts</Link></li>
+              <li><Link href="#transparency" sx={{ color: theme.palette.mode === 'dark' ? '#6B7280' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#1F2937' : 'white' } }}>Transparency</Link></li>
             </Box>
           </Box>
           
@@ -84,7 +84,7 @@ const Footer = () => {
                 fontSize: '1.1rem',
                 fontWeight: 600,
                 marginBottom: '1rem',
-                color: 'white',
+                color: theme.palette.mode === 'dark' ? '#1F2937' : 'white',
               }}
             >
               Support
@@ -95,7 +95,7 @@ const Footer = () => {
                   href="https://docs.google.com/forms/d/e/1FAIpQLScKpdvnOgR4mTCRSN40AmDgY4HmvBeaMzHYw-zK8dFWoGeu9Q/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
-                  sx={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}
+                  sx={{ color: theme.palette.mode === 'dark' ? '#6B7280' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#1F2937' : 'white' } }}
                 >
                   Contact Us
                 </Link>
@@ -108,7 +108,7 @@ const Footer = () => {
           className="footer-bottom"
           sx={{
             paddingTop: '2rem',
-            borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+            borderTop: `1px solid ${theme.palette.mode === 'dark' ? '#E5E7EB' : 'rgba(255, 255, 255, 0.1)'}`,
             textAlign: 'center',
           }}
         >
@@ -116,7 +116,7 @@ const Footer = () => {
             variant="body2"
             className="footer-copyright"
             sx={{
-              color: 'rgba(255, 255, 255, 0.6)',
+              color: theme.palette.mode === 'dark' ? '#6B7280' : 'rgba(255, 255, 255, 0.6)',
               fontSize: '0.9rem',
             }}
           >

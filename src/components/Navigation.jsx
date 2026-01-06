@@ -1,13 +1,16 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTheme } from '../context/ThemeContext'
 import { HiMoon, HiSun } from 'react-icons/hi'
 import { Button, IconButton, useTheme as useMUITheme } from '@mui/material'
+import ComingSoonModal from './ComingSoonModal'
 import './Navigation.css'
 
 const Navigation = ({ scrollY }) => {
   const isScrolled = scrollY > 50
   const { isDark, toggleTheme } = useTheme()
   const muiTheme = useMUITheme()
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <motion.nav
@@ -54,6 +57,7 @@ const Navigation = ({ scrollY }) => {
           >
             <Button
               variant="contained"
+              onClick={() => setModalOpen(true)}
               sx={{
                 background: 'linear-gradient(135deg, #4F46E5, #7C3AED)',
                 '&:hover': {
@@ -66,6 +70,11 @@ const Navigation = ({ scrollY }) => {
           </motion.div>
         </div>
       </div>
+      <ComingSoonModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        platform="App"
+      />
     </motion.nav>
   )
 }
