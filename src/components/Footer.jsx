@@ -3,6 +3,14 @@ import './Footer.css'
 
 const Footer = () => {
 
+  // shared gradient style (same as Zynpy)
+  const gradientText = {
+    background: 'linear-gradient(135deg, #4F46E5, rgb(124, 58, 237))',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    backgroundClip: 'text',
+  }
+
   return (
     <Box
       component="footer"
@@ -10,12 +18,14 @@ const Footer = () => {
       className="footer"
       sx={{
         background: '#000000',
-        color: 'rgb(124, 58, 237)',
         padding: { xs: '3rem 0 1.5rem', md: '4rem 0 2rem' },
         position: 'relative',
       }}
     >
-      <Box className="footer-container" sx={{ maxWidth: 1280, margin: '0 auto', padding: '0 2rem' }}>
+      <Box
+        className="footer-container"
+        sx={{ maxWidth: 1280, margin: '0 auto', padding: '0 2rem' }}
+      >
         <Box
           className="footer-content"
           sx={{
@@ -25,27 +35,26 @@ const Footer = () => {
             marginBottom: '3rem',
           }}
         >
+          {/* Brand */}
           <Box className="footer-section" sx={{ display: 'flex', flexDirection: 'column' }}>
             <Typography
               variant="h6"
               className="footer-logo"
               sx={{
+                ...gradientText,
                 fontSize: '1.5rem',
                 fontWeight: 700,
                 marginBottom: '1rem',
-                background: 'linear-gradient(135deg, #4F46E5,rgb(124, 58, 237))',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
               }}
             >
               Zynpy
             </Typography>
+
             <Typography
               variant="body2"
               className="footer-tagline"
               sx={{
-                color: 'rgb(124, 58, 237)',
+                ...gradientText,
                 fontSize: '0.95rem',
                 lineHeight: 1.6,
               }}
@@ -53,48 +62,102 @@ const Footer = () => {
               Plan together. Pool money. Pay without stress.
             </Typography>
           </Box>
-          
+
+          {/* Product */}
           <Box className="footer-section" sx={{ display: 'flex', flexDirection: 'column' }}>
             <Typography
               variant="h6"
               className="footer-heading"
               sx={{
+                ...gradientText,
                 fontSize: '1.1rem',
                 fontWeight: 600,
                 marginBottom: '1rem',
-                color: 'rgb(124, 58, 237)',
               }}
             >
               Product
             </Typography>
-            <Box component="ul" className="footer-links" sx={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', padding: 0, margin: 0 }}>
-              <li><Link href="#how-it-works" sx={{ color: 'rgb(124, 58, 237)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>How It Works</Link></li>
-              <li><Link href="#features" sx={{ color: 'rgb(124, 58, 237)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>Features</Link></li>
-              <li><Link href="#for-hosts" sx={{ color: 'rgb(124, 58, 237)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>For Hosts</Link></li>
-              <li><Link href="#transparency" sx={{ color: 'rgb(124, 58, 237)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}>Transparency</Link></li>
+
+            <Box
+              component="ul"
+              className="footer-links"
+              sx={{
+                listStyle: 'none',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.75rem',
+                padding: 0,
+                margin: 0,
+              }}
+            >
+              <li>
+                <Link
+                  href="#how-it-works"
+                  sx={{ ...gradientText, textDecoration: 'none', fontSize: '0.95rem', '&:hover': { opacity: 0.85 } }}
+                >
+                  How It Works
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#features"
+                  sx={{ ...gradientText, textDecoration: 'none', fontSize: '0.95rem', '&:hover': { opacity: 0.85 } }}
+                >
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#for-hosts"
+                  sx={{ ...gradientText, textDecoration: 'none', fontSize: '0.95rem', '&:hover': { opacity: 0.85 } }}
+                >
+                  For Hosts
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#transparency"
+                  sx={{ ...gradientText, textDecoration: 'none', fontSize: '0.95rem', '&:hover': { opacity: 0.85 } }}
+                >
+                  Transparency
+                </Link>
+              </li>
             </Box>
           </Box>
-          
+
+          {/* Support */}
           <Box className="footer-section" sx={{ display: 'flex', flexDirection: 'column' }}>
             <Typography
               variant="h6"
               className="footer-heading"
               sx={{
+                ...gradientText,
                 fontSize: '1.1rem',
                 fontWeight: 600,
                 marginBottom: '1rem',
-                color: 'rgb(124, 58, 237)',
               }}
             >
               Support
             </Typography>
-            <Box component="ul" className="footer-links" sx={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', padding: 0, margin: 0 }}>
+
+            <Box
+              component="ul"
+              className="footer-links"
+              sx={{
+                listStyle: 'none',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.75rem',
+                padding: 0,
+                margin: 0,
+              }}
+            >
               <li>
                 <Link
                   href="https://docs.google.com/forms/d/e/1FAIpQLScKpdvnOgR4mTCRSN40AmDgY4HmvBeaMzHYw-zK8dFWoGeu9Q/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
-                  sx={{ color: 'rgb(124, 58, 237)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: 'white' } }}
+                  sx={{ ...gradientText, textDecoration: 'none', fontSize: '0.95rem', '&:hover': { opacity: 0.85 } }}
                 >
                   Contact Us
                 </Link>
@@ -102,7 +165,8 @@ const Footer = () => {
             </Box>
           </Box>
         </Box>
-        
+
+        {/* Bottom */}
         <Box
           className="footer-bottom"
           sx={{
@@ -115,7 +179,7 @@ const Footer = () => {
             variant="body2"
             className="footer-copyright"
             sx={{
-              color: 'rgb(124, 58, 237)',
+              ...gradientText,
               fontSize: '0.9rem',
             }}
           >
@@ -128,4 +192,3 @@ const Footer = () => {
 }
 
 export default Footer
-
