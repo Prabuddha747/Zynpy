@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion'
 import { useTheme } from '../context/ThemeContext'
 import { HiMoon, HiSun } from 'react-icons/hi'
+import { Button, IconButton, useTheme as useMUITheme } from '@mui/material'
 import './Navigation.css'
 
 const Navigation = ({ scrollY }) => {
   const isScrolled = scrollY > 50
   const { isDark, toggleTheme } = useTheme()
+  const muiTheme = useMUITheme()
 
   return (
     <motion.nav
@@ -28,22 +30,40 @@ const Navigation = ({ scrollY }) => {
         </ul>
 
         <div className="nav-actions">
-          <motion.button
-            className="theme-toggle"
-            onClick={toggleTheme}
+          <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            aria-label="Toggle dark mode"
           >
-            {isDark ? <HiSun size={20} /> : <HiMoon size={20} />}
-          </motion.button>
-          <motion.button
-            className="nav-cta"
+            <IconButton
+              onClick={toggleTheme}
+              aria-label="Toggle dark mode"
+              sx={{
+                color: muiTheme.palette.text.primary,
+                backgroundColor: muiTheme.palette.background.paper,
+                '&:hover': {
+                  backgroundColor: muiTheme.palette.action.hover,
+                },
+              }}
+            >
+              {isDark ? <HiSun size={20} /> : <HiMoon size={20} />}
+            </IconButton>
+          </motion.div>
+          <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Download App
-          </motion.button>
+            <Button
+              variant="contained"
+              sx={{
+                background: 'linear-gradient(135deg, #4F46E5, #7C3AED)',
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #4338CA, #6D28D9)',
+                },
+              }}
+            >
+              Download App
+            </Button>
+          </motion.div>
         </div>
       </div>
     </motion.nav>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { FaAndroid, FaApple } from 'react-icons/fa'
+import { Button } from '@mui/material'
 import './FinalCTA.css'
 
 const FinalCTA = () => {
@@ -33,33 +34,61 @@ const FinalCTA = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <motion.button
-              className="download-btn android"
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="btn-icon">
-                <FaAndroid size={32} />
-              </span>
-              <div className="btn-content">
-                <span className="btn-label">Download for</span>
-                <span className="btn-platform">Android</span>
-              </div>
-            </motion.button>
+              <Button
+                variant="outlined"
+                size="large"
+                startIcon={<FaAndroid size={24} />}
+                sx={{
+                  minWidth: 200,
+                  py: 1.5,
+                  px: 2,
+                  borderColor: 'divider',
+                  color: 'text.primary',
+                  '&:hover': {
+                    borderColor: 'primary.main',
+                    backgroundColor: 'action.hover',
+                  },
+                  mb: { xs: 2, sm: 0 },
+                  mr: { xs: 0, sm: 2 },
+                }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginLeft: 8 }}>
+                  <span style={{ fontSize: '0.85rem', opacity: 0.7 }}>Download for</span>
+                  <span style={{ fontSize: '1.1rem', fontWeight: 700 }}>Android</span>
+                </div>
+              </Button>
+            </motion.div>
             
-            <motion.button
-              className="download-btn ios"
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="btn-icon">
-                <FaApple size={32} />
-              </span>
-              <div className="btn-content">
-                <span className="btn-label">Download for</span>
-                <span className="btn-platform">iOS</span>
-              </div>
-            </motion.button>
+              <Button
+                variant="outlined"
+                size="large"
+                startIcon={<FaApple size={24} />}
+                sx={{
+                  minWidth: 200,
+                  py: 1.5,
+                  px: 2,
+                  borderColor: 'divider',
+                  color: 'text.primary',
+                  '&:hover': {
+                    borderColor: 'primary.main',
+                    backgroundColor: 'action.hover',
+                  },
+                }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginLeft: 8 }}>
+                  <span style={{ fontSize: '0.85rem', opacity: 0.7 }}>Download for</span>
+                  <span style={{ fontSize: '1.1rem', fontWeight: 700 }}>iOS</span>
+                </div>
+              </Button>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

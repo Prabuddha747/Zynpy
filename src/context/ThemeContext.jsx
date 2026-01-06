@@ -1,4 +1,7 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState, useEffect, useMemo } from 'react'
+import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles'
+import { CssBaseline } from '@mui/material'
+import { getTheme } from '../theme/theme'
 
 const ThemeContext = createContext()
 
@@ -13,22 +16,27 @@ export const useTheme = () => {
 export const ThemeProvider = ({ children }) => {
   const [isDark, setIsDark] = useState(() => {
     // Check localStorage first, then system preference
-    const saved = localStorage.getItem('theme')
-    if (saved) {
-      return saved === 'dark'
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('theme')
+      if (saved) {
+        return saved === 'dark'
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
+    return false
   })
 
   useEffect(() => {
     // Update localStorage
-    localStorage.setItem('theme', isDark ? 'dark' : 'light')
-    
-    // Update document class
-    if (isDark) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', isDark ? 'dark' : 'light')
+      
+      // Update document class
+      if (isDark) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
     }
   }, [isDark])
 
@@ -36,9 +44,14 @@ export const ThemeProvider = ({ children }) => {
     setIsDark(prev => !prev)
   }
 
+  const theme = useMemo(() => getTheme(isDark), [isDark])
+
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>
-      {children}
+      <MUIThemeProvider theme={theme}>
+        <CssBaseline />
+        {children}
+      </MUIThemeProvider>
     </ThemeContext.Provider>
   )
 }

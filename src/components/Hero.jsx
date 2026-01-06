@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Button } from '@mui/material'
 import './Hero.css'
 
 const Hero = () => {
@@ -45,20 +46,46 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <motion.button
-                className="cta-primary"
-                whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(79, 70, 229, 0.4)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Download the App
-              </motion.button>
-              <motion.button
-                className="cta-secondary"
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See how it works
-              </motion.button>
+                <Button
+                  variant="contained"
+                  size="large"
+                  sx={{
+                    background: 'linear-gradient(135deg, #4F46E5, #7C3AED)',
+                    boxShadow: '0 8px 25px rgba(79, 70, 229, 0.3)',
+                    '&:hover': {
+                      background: 'linear-gradient(135deg, #4338CA, #6D28D9)',
+                      boxShadow: '0 10px 30px rgba(79, 70, 229, 0.4)',
+                    },
+                    mr: 2,
+                    mb: { xs: 2, sm: 0 },
+                  }}
+                >
+                  Download the App
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  variant="outlined"
+                  size="large"
+                  sx={{
+                    borderColor: 'text.secondary',
+                    color: 'text.primary',
+                    '&:hover': {
+                      borderColor: 'primary.main',
+                      color: 'primary.main',
+                    },
+                  }}
+                >
+                  See how it works
+                </Button>
+              </motion.div>
             </motion.div>
           </motion.div>
           
