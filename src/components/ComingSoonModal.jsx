@@ -35,12 +35,6 @@ const ComingSoonModal = ({ open, onClose, platform = 'App' }) => {
             : '0 20px 60px rgba(0, 0, 0, 0.15)',
         },
       }}
-      TransitionComponent={motion.div}
-      transition={{
-        type: 'spring',
-        damping: 25,
-        stiffness: 200,
-      }}
     >
       <DialogTitle
         sx={{
