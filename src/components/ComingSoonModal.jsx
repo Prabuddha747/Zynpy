@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {
   Dialog,
   DialogContent,
@@ -9,7 +8,7 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { HiX } from 'react-icons/hi'
 import { FaRocket } from 'react-icons/fa'
 
