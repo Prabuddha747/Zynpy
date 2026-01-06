@@ -1,7 +1,8 @@
-import { Box, Typography, Link } from '@mui/material'
+import { Box, Typography, Link, useTheme } from '@mui/material'
 import './Footer.css'
 
 const Footer = () => {
+  const theme = useTheme()
 
   // shared gradient style (same as Zynpy)
   const gradientText = {
@@ -17,7 +18,7 @@ const Footer = () => {
       id="support"
       className="footer"
       sx={{
-        background: '#1F2937',
+        background: theme.palette.mode === 'dark' ? '#F9FAFB' : '#1F2937',
         padding: { xs: '3rem 0 1.5rem', md: '4rem 0 2rem' },
         position: 'relative',
       }}
