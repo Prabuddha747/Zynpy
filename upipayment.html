@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payment System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+        
+        .amount-input {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .btn-container {
+            display: grid;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-pay {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-pay:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-qr {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-qr:hover {
+            background: #f5f7ff;
+        }
+        
+        .info-box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .info-box p {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .upi-apps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .upi-app {
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .upi-app:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+        
+        .upi-app img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+        
+        .upi-app span {
+            display: block;
+            font-size: 11px;
+            color: #666;
+        }
+        
+        #qrCode {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+        
+        #qrCode canvas {
+            margin: 10px auto;
+        }
+
+        .config-section {
+            background: #fff5e6;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .config-section h3 {
+            color: #ff9800;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .config-section input {
+            font-size: 14px;
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💳 UPI Payment</h1>
+        <p class="subtitle">Fast, secure, and instant payments</p>
+
+        <!-- Configuration Section -->
+        <div class="config-section">
+            <h3>⚙️ Configuration (Update Your Details)</h3>
+            <div class="form-group">
+                <label for="merchantUPI">Your Business UPI ID</label>
+                <input type="text" id="merchantUPI" value="yourbusiness@paytm" placeholder="businessname@paytm">
+            </div>
+            <div class="form-group">
+                <label for="merchantName">Business Name</label>
+                <input type="text" id="merchantName" value="Your Startup" placeholder="Your Business Name">
+            </div>
+        </div>
+        
+        <form id="paymentForm">
+            <div class="form-group">
+                <label for="amount">Amount (₹)</label>
+                <input type="number" id="amount" class="amount-input" placeholder="500" min="1" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="orderId">Order ID / Reference</label>
+                <input type="text" id="orderId" placeholder="ORD" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label for="note">Transaction Note (Optional)</label>
+                <textarea id="note" placeholder="Payment for order..."></textarea>
+            </div>
+            
+            <div class="btn-container">
+                <button type="submit" class="btn-pay" id="payBtn">
+                    <span>📱</span> <span id="payBtnText">Pay with UPI App</span>
+                </button>
+                <button type="button" class="btn-qr" onclick="showQRCode()">
+                    <span>🔲</span> Show QR Code
+                </button>
+            </div>
+        </form>
+
+        <div class="upi-apps">
+            <div class="upi-app" onclick="payWithSpecificApp('gpay')">
+                <div style="font-size: 32px;">G</div>
+                <span>GPay</span>
+            </div>
+            <div class="upi-app" onclick="payWithSpecificApp('phonepe')">
+                <div style="font-size: 32px;">📱</div>
+                <span>PhonePe</span>
+            </div>
+            <div class="upi-app" onclick="payWithSpecificApp('paytm')">
+                <div style="font-size: 32px;">💳</div>
+                <span>Paytm</span>
+            </div>
+            <div class="upi-app" onclick="payWithSpecificApp('bharatpe')">
+                <div style="font-size: 32px;">🅱️</div>
+                <span>BharatPe</span>
+            </div>
+        </div>
+        
+        <div id="qrCode"></div>
+        
+        <div class="info-box">
+            <h3>ℹ️ How it works</h3>
+            <p>1. Enter the amount and click "Pay with UPI App"<br>
+            2. Select your UPI app (GPay, PhonePe, Paytm, etc.)<br>
+            3. Enter your UPI PIN and confirm<br>
+            4. Payment will be credited instantly!</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        // Detect if running on mobile device (define first)
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                   (window.innerWidth <= 768);
+        }
+
+        // Generate random order ID on page load
+        document.getElementById('orderId').value = 'ORD' + Date.now();
+
+        // Update button text based on device type
+        window.addEventListener('DOMContentLoaded', function() {
+            if (!isMobileDevice()) {
+                const payBtn = document.getElementById('payBtn');
+                const payBtnText = document.getElementById('payBtnText');
+                if (payBtn && payBtnText) {
+                    payBtnText.textContent = 'Show QR Code (Mobile Required)';
+                    payBtn.style.background = 'linear-gradient(135deg, #f39c12 0%, #e67e22 100%)';
+                }
+            }
+        });
+
+        // Form submission - Main UPI Intent
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            initiateUPIPayment();
+        });
+
+        function initiateUPIPayment(app = null) {
+            const merchantUPI = document.getElementById('merchantUPI').value.trim();
+            const merchantName = document.getElementById('merchantName').value.trim();
+            const amount = document.getElementById('amount').value;
+            const orderId = document.getElementById('orderId').value;
+            const note = document.getElementById('note').value || `Payment for ${orderId}`;
+
+            if (!merchantUPI || !merchantName) {
+                alert('Please configure your UPI ID and business name first!');
+                return;
+            }
+
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid amount');
+                return;
+            }
+
+            // Build UPI Intent URL
+            const upiUrl = buildUPIUrl(merchantUPI, merchantName, amount, orderId, note);
+            
+            // Check if running on mobile or desktop
+            if (!isMobileDevice()) {
+                // On desktop/web browser - show QR code instead
+                alert('⚠️ UPI apps work on mobile devices only.\n\nShowing QR code instead. Please scan with your mobile UPI app.');
+                showQRCode();
+                return;
+            }
+
+            // On mobile device - try to open UPI app
+            let targetUrl = upiUrl;
+            
+            if (app) {
+                targetUrl = getAppSpecificUrl(app, upiUrl);
+            }
+
+            // Try to open the UPI app
+            try {
+                // Create a hidden link and click it (more reliable than window.location)
+                const link = document.createElement('a');
+                link.href = targetUrl;
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                // Fallback: if link click doesn't work, try window.location
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 100);
+            } catch (e) {
+                console.error('Error opening UPI app:', e);
+                // Fallback to QR code if app opening fails
+                alert('Could not open UPI app. Showing QR code instead.');
+                showQRCode();
+            }
+
+            // Show instructions
+            setTimeout(() => {
+                console.log('UPI payment initiated. If app didn\'t open, please scan the QR code.');
+            }, 500);
+
+            // In production, you'd poll your backend to verify payment
+            console.log('Payment initiated:', {
+                merchantUPI,
+                amount,
+                orderId,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        function buildUPIUrl(pa, pn, am, tr, tn) {
+            // pa = Payee Address (UPI ID)
+            // pn = Payee Name
+            // am = Amount
+            // tr = Transaction Reference (Order ID)
+            // tn = Transaction Note
+            
+            const params = new URLSearchParams({
+                pa: pa,
+                pn: pn,
+                am: am,
+                cu: 'INR',
+                tr: tr,
+                tn: tn
+            });
+
+            return `upi://pay?${params.toString()}`;
+        }
+
+        function getAppSpecificUrl(app, genericUrl) {
+            // App-specific deep links
+            const appUrls = {
+                'gpay': `gpay://upi/pay?${genericUrl.split('?')[1]}`,
+                'phonepe': `phonepe://pay?${genericUrl.split('?')[1]}`,
+                'paytm': `paytmmp://pay?${genericUrl.split('?')[1]}`,
+                'bharatpe': genericUrl // BharatPe uses generic UPI
+            };
+
+            return appUrls[app] || genericUrl;
+        }
+
+        function payWithSpecificApp(app) {
+            const amount = document.getElementById('amount').value;
+            if (!amount || amount <= 0) {
+                alert('Please enter amount first');
+                return;
+            }
+            
+            // On desktop, show QR code with app-specific message
+            if (!isMobileDevice()) {
+                alert(`⚠️ ${app.toUpperCase()} works on mobile devices only.\n\nShowing QR code instead. Please scan with your mobile ${app.toUpperCase()} app.`);
+                showQRCode();
+                return;
+            }
+            
+            initiateUPIPayment(app);
+        }
+
+        function showQRCode() {
+            const merchantUPI = document.getElementById('merchantUPI').value.trim();
+            const merchantName = document.getElementById('merchantName').value.trim();
+            const amount = document.getElementById('amount').value;
+            const orderId = document.getElementById('orderId').value;
+            const note = document.getElementById('note').value || `Payment for ${orderId}`;
+
+            if (!merchantUPI || !merchantName) {
+                alert('Please configure your UPI ID and business name first!');
+                return;
+            }
+
+            if (!amount || amount <= 0) {
+                alert('Please enter amount first');
+                return;
+            }
+
+            const upiUrl = buildUPIUrl(merchantUPI, merchantName, amount, orderId, note);
+            
+            const qrDiv = document.getElementById('qrCode');
+            qrDiv.innerHTML = `
+                <h3 style="color: #667eea; margin-bottom: 10px;">Scan with any UPI App</h3>
+                <div id="qrcode"></div>
+                <p style="color: #666; margin-top: 10px; font-size: 14px;">
+                    Open any UPI app and scan this QR code to pay ₹${amount}
+                </p>
+            `;
+            qrDiv.style.display = 'block';
+
+            // Generate QR code
+            new QRCode(document.getElementById('qrcode'), {
+                text: upiUrl,
+                width: 256,
+                height: 256,
+                colorDark: '#000000',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        // Detect if payment page is reopened (user might have completed payment)
+        window.addEventListener('focus', function() {
+            console.log('Page regained focus - check if payment completed');
+            // In production: call your backend API to verify payment status
+        });
+    </script>
+</body>
+</html>
