@@ -79,6 +79,7 @@ const Hero = () => {
                 <Button
                   variant="outlined"
                   size="large"
+                  href="#how-it-works"
                   sx={{
                     borderColor: 'text.secondary',
                     color: 'text.primary',

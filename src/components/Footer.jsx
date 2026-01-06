@@ -69,10 +69,10 @@ const Footer = () => {
               Product
             </Typography>
             <Box component="ul" className="footer-links" sx={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', padding: 0, margin: 0 }}>
-              <li><Link href="#how-it-works" sx={{ color: theme.palette.mode === 'dark' ? '#6B7280' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#1F2937' : 'white' } }}>How It Works</Link></li>
-              <li><Link href="#features" sx={{ color: theme.palette.mode === 'dark' ? '#6B7280' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#1F2937' : 'white' } }}>Features</Link></li>
-              <li><Link href="#for-hosts" sx={{ color: theme.palette.mode === 'dark' ? '#6B7280' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#1F2937' : 'white' } }}>For Hosts</Link></li>
-              <li><Link href="#transparency" sx={{ color: theme.palette.mode === 'dark' ? '#6B7280' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#1F2937' : 'white' } }}>Transparency</Link></li>
+              <li><Link href="#how-it-works" sx={{ color: theme.palette.mode === 'dark' ? '#1F2937' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#111827' : 'white' } }}>How It Works</Link></li>
+              <li><Link href="#features" sx={{ color: theme.palette.mode === 'dark' ? '#1F2937' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#111827' : 'white' } }}>Features</Link></li>
+              <li><Link href="#for-hosts" sx={{ color: theme.palette.mode === 'dark' ? '#1F2937' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#111827' : 'white' } }}>For Hosts</Link></li>
+              <li><Link href="#transparency" sx={{ color: theme.palette.mode === 'dark' ? '#1F2937' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#111827' : 'white' } }}>Transparency</Link></li>
             </Box>
           </Box>
           
@@ -95,7 +95,7 @@ const Footer = () => {
                   href="https://docs.google.com/forms/d/e/1FAIpQLScKpdvnOgR4mTCRSN40AmDgY4HmvBeaMzHYw-zK8dFWoGeu9Q/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
-                  sx={{ color: theme.palette.mode === 'dark' ? '#6B7280' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#1F2937' : 'white' } }}
+                  sx={{ color: theme.palette.mode === 'dark' ? '#1F2937' : 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', fontSize: '0.95rem', '&:hover': { color: theme.palette.mode === 'dark' ? '#111827' : 'white' } }}
                 >
                   Contact Us
                 </Link>

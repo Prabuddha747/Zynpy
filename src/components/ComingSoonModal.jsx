@@ -5,6 +5,7 @@ import {
   IconButton,
   Typography,
   Box,
+  Link,
   useTheme,
   useMediaQuery,
 } from '@mui/material'
@@ -140,36 +141,52 @@ const ComingSoonModal = ({ open, onClose, platform = 'App' }) => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <Box
-              sx={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 1,
-                px: 3,
-                py: 1.5,
-                borderRadius: 3,
-                background: theme.palette.mode === 'dark'
-                  ? 'rgba(79, 70, 229, 0.1)'
-                  : 'rgba(79, 70, 229, 0.05)',
-                border: `1px solid ${theme.palette.primary.main}20`,
-              }}
+            <Link
+              href="https://docs.google.com/forms/d/e/1FAIpQLScKpdvnOgR4mTCRSN40AmDgY4HmvBeaMzHYw-zK8dFWoGeu9Q/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ textDecoration: 'none' }}
             >
-              <motion.div
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                <FaRocket size={20} style={{ color: theme.palette.primary.main }} />
-              </motion.div>
-              <Typography
-                variant="body2"
+              <Box
                 sx={{
-                  color: 'primary.main',
-                  fontWeight: 600,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 1,
+                  px: 3,
+                  py: 1.5,
+                  borderRadius: 3,
+                  background: theme.palette.mode === 'dark'
+                    ? 'rgba(79, 70, 229, 0.1)'
+                    : 'rgba(79, 70, 229, 0.05)',
+                  border: `1px solid ${theme.palette.primary.main}20`,
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    background: theme.palette.mode === 'dark'
+                      ? 'rgba(79, 70, 229, 0.2)'
+                      : 'rgba(79, 70, 229, 0.1)',
+                    transform: 'translateY(-2px)',
+                    boxShadow: `0 4px 12px ${theme.palette.primary.main}30`,
+                  },
                 }}
               >
-                Get notified when we launch
-              </Typography>
-            </Box>
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <FaRocket size={20} style={{ color: theme.palette.primary.main }} />
+                </motion.div>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: 'primary.main',
+                    fontWeight: 600,
+                  }}
+                >
+                  Get notified when we launch
+                </Typography>
+              </Box>
+            </Link>
           </motion.div>
         </Box>
       </DialogContent>
