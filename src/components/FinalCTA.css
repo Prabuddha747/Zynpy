@@ -133,22 +133,13 @@
   color: var(--text-dark);
 }
 
+/* Dark mode styles are now handled by Material UI theme */
 :root.dark .final-cta {
-  background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(124, 58, 237, 0.08));
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(124, 58, 237, 0.12));
 }
 
-:root.dark .download-btn {
-  background: var(--bg-white);
-  border-color: var(--bg-grey);
-}
-
-:root.dark .download-btn:hover {
-  border-color: var(--gradient-blue);
-  box-shadow: 0 8px 30px rgba(79, 70, 229, 0.3);
-}
-
-:root.dark .btn-icon {
-  color: var(--text-dark);
+:root.dark .cta-subtext {
+  color: var(--text-light);
 }
 
 @media (max-width: 768px) {
