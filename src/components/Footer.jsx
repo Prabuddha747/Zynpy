@@ -4,13 +4,20 @@ import './Footer.css'
 const Footer = () => {
   const theme = useTheme()
 
-  // shared gradient style (same as Zynpy)
-  const gradientText = {
-    background: 'linear-gradient(135deg, #4F46E5, rgb(124, 58, 237))',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-  }
+  // shared gradient style - muted in dark mode for eye comfort
+  const gradientText = theme.palette.mode === 'dark' 
+    ? {
+        background: 'linear-gradient(135deg, rgba(79, 70, 229, 0.7), rgba(124, 58, 237, 0.7))',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+      }
+    : {
+        background: 'linear-gradient(135deg, #4F46E5, rgb(124, 58, 237))',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+      }
 
   return (
     <Box
@@ -18,7 +25,7 @@ const Footer = () => {
       id="support"
       className="footer"
       sx={{
-        background: theme.palette.mode === 'dark' ? '#F9FAFB' : '#1F2937',
+        background: theme.palette.mode === 'dark' ? '#1F2937' : '#F3F4F6',
         padding: { xs: '3rem 0 1.5rem', md: '4rem 0 2rem' },
         position: 'relative',
       }}
@@ -172,7 +179,9 @@ const Footer = () => {
           className="footer-bottom"
           sx={{
             paddingTop: '2rem',
-            borderTop: '1px solid rgb(124, 58, 237)',
+            borderTop: theme.palette.mode === 'dark' 
+              ? '1px solid rgba(124, 58, 237, 0.3)'
+              : '1px solid rgba(124, 58, 237, 0.2)',
             textAlign: 'center',
           }}
         >
