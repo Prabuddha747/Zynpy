@@ -17,7 +17,7 @@ const Footer = () => {
       id="support"
       className="footer"
       sx={{
-        background: '#000000',
+        background: '#1F2937',
         padding: { xs: '3rem 0 1.5rem', md: '4rem 0 2rem' },
         position: 'relative',
       }}
