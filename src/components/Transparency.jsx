@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { HiSearch, HiSparkles, HiScale } from 'react-icons/hi'
 import './Transparency.css'
 
 const transparencyPoints = [
@@ -8,19 +9,19 @@ const transparencyPoints = [
     id: 1,
     title: "Fully Auditable",
     description: "Every transaction is recorded and can be reviewed at any time",
-    icon: "🔍"
+    Icon: HiSearch
   },
   {
     id: 2,
     title: "No Hidden Fees",
     description: "What you see is what you get. Complete transparency in all operations",
-    icon: "💎"
+    Icon: HiSparkles
   },
   {
     id: 3,
     title: "Fair & Clear",
     description: "Everyone sees the same information, eliminating confusion and disputes",
-    icon: "⚖️"
+    Icon: HiScale
   }
 ]
 
@@ -52,7 +53,9 @@ const Transparency = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
-              <div className="transparency-icon">{point.icon}</div>
+              <div className="transparency-icon">
+                <point.Icon size={56} />
+              </div>
               <h3 className="transparency-point-title">{point.title}</h3>
               <p className="transparency-point-description">{point.description}</p>
             </motion.div>

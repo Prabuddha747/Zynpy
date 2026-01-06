@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { HiQuote } from 'react-icons/hi'
 import './SocialProof.css'
 
 const testimonials = [
@@ -55,7 +56,9 @@ const SocialProof = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="quote-icon">"</div>
+              <div className="quote-icon">
+                <HiQuote size={48} />
+              </div>
               <p className="testimonial-text">{testimonial.text}</p>
               <div className="testimonial-author">
                 <span className="author-name">{testimonial.author}</span>

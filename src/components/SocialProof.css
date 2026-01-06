@@ -40,6 +40,9 @@
   left: 1.5rem;
   font-weight: 700;
   font-family: Georgia, serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .testimonial-text {
@@ -69,6 +72,28 @@
 .author-role {
   font-size: 0.9rem;
   color: var(--text-light);
+}
+
+:root.dark .social-proof-section {
+  background: var(--bg-light);
+}
+
+:root.dark .testimonial-card {
+  background: var(--bg-white);
+  border-color: var(--bg-grey);
+}
+
+:root.dark .testimonial-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+:root.dark .quote-icon {
+  color: var(--gradient-blue);
+  opacity: 0.3;
+}
+
+:root.dark .testimonial-author {
+  border-top-color: var(--bg-grey);
 }
 
 @media (max-width: 768px) {

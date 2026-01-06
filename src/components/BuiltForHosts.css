@@ -124,7 +124,8 @@
 }
 
 .status-indicator {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -144,6 +145,28 @@
 .status-indicator.active {
   background: rgba(79, 70, 229, 0.1);
   color: var(--gradient-blue);
+}
+
+:root.dark .built-for-hosts {
+  background: var(--bg-white);
+}
+
+:root.dark .hosts-gradient {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(124, 58, 237, 0.12));
+}
+
+:root.dark .host-card {
+  background: var(--bg-light);
+  border-color: var(--bg-grey);
+}
+
+:root.dark .host-card:hover {
+  box-shadow: 0 12px 40px rgba(79, 70, 229, 0.2);
+}
+
+:root.dark .status-indicator {
+  display: inline-flex;
+  align-items: center;
 }
 
 @media (max-width: 768px) {

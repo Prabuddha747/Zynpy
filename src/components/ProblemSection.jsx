@@ -1,28 +1,29 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { HiQuestionMarkCircle, HiEmojiSad, HiChartBar, HiStop } from 'react-icons/hi'
 import './ProblemSection.css'
 
 const problems = [
   {
     id: 1,
     text: "Not knowing who has paid",
-    icon: "❓"
+    Icon: HiQuestionMarkCircle
   },
   {
     id: 2,
     text: "Confusion around pending amounts",
-    icon: "😕"
+    Icon: HiEmojiSad
   },
   {
     id: 3,
     text: "Lack of clarity on total collections",
-    icon: "📊"
+    Icon: HiChartBar
   },
   {
     id: 4,
     text: "No proper closure after group spending",
-    icon: "🔚"
+    Icon: HiStop
   }
 ]
 
@@ -51,7 +52,9 @@ const ProblemSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="problem-icon">{problem.icon}</div>
+              <div className="problem-icon">
+                <problem.Icon size={48} />
+              </div>
               <p className="problem-text">{problem.text}</p>
             </motion.div>
           ))}

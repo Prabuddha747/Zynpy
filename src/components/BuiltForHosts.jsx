@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { HiCheckCircle, HiClock, HiStatusOnline } from 'react-icons/hi'
 import './BuiltForHosts.css'
 
 const hostFeatures = [
@@ -65,7 +66,22 @@ const BuiltForHosts = () => {
               <h3 className="host-title">{feature.title}</h3>
               <p className="host-description">{feature.description}</p>
               <div className={`status-indicator ${index === 0 ? 'validated' : index === 1 ? 'pending' : 'active'}`}>
-                {index === 0 ? '✓ Validated' : index === 1 ? '⏳ Pending' : '● Active'}
+                {index === 0 ? (
+                  <>
+                    <HiCheckCircle size={16} style={{ marginRight: '4px' }} />
+                    Validated
+                  </>
+                ) : index === 1 ? (
+                  <>
+                    <HiClock size={16} style={{ marginRight: '4px' }} />
+                    Pending
+                  </>
+                ) : (
+                  <>
+                    <HiStatusOnline size={16} style={{ marginRight: '4px' }} />
+                    Active
+                  </>
+                )}
               </div>
             </motion.div>
           ))}

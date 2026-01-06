@@ -28,6 +28,10 @@
 .feature-icon {
   font-size: 3rem;
   margin-bottom: 1.5rem;
+  color: var(--gradient-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .feature-title {
@@ -41,6 +45,23 @@
   font-size: 1rem;
   color: var(--text-light);
   line-height: 1.7;
+}
+
+:root.dark .features-section {
+  background: var(--bg-light);
+}
+
+:root.dark .feature-card {
+  background: var(--bg-white);
+  border-color: var(--bg-grey);
+}
+
+:root.dark .feature-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+:root.dark .feature-icon {
+  color: var(--gradient-blue);
 }
 
 @media (max-width: 768px) {

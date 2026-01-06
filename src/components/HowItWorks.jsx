@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
+import { HiPlusCircle, HiUserGroup, HiCheckCircle, HiClipboardList } from 'react-icons/hi'
 import './HowItWorks.css'
 
 const steps = [
@@ -8,25 +9,25 @@ const steps = [
     id: 1,
     title: "Create a pool",
     description: "Set up a money pool for your group event or plan",
-    icon: "➕"
+    Icon: HiPlusCircle
   },
   {
     id: 2,
     title: "Share with members",
     description: "Invite members and collect money through UPI",
-    icon: "👥"
+    Icon: HiUserGroup
   },
   {
     id: 3,
     title: "Host validates payments",
     description: "Verify contributions as they come in",
-    icon: "✅"
+    Icon: HiCheckCircle
   },
   {
     id: 4,
     title: "Pool closes & summary",
     description: "Get a complete financial summary when done",
-    icon: "📋"
+    Icon: HiClipboardList
   }
 ]
 
@@ -71,7 +72,9 @@ const HowItWorks = () => {
               onHoverStart={() => setActiveStep(index)}
             >
               <div className="step-number">{step.id}</div>
-              <div className="step-icon">{step.icon}</div>
+              <div className="step-icon">
+                <step.Icon size={56} />
+              </div>
               <h3 className="step-title">{step.title}</h3>
               <p className="step-description">{step.description}</p>
               {activeStep === index && (

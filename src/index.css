@@ -16,6 +16,14 @@
   --bg-grey: #F3F4F6;
 }
 
+:root.dark {
+  --text-dark: #F9FAFB;
+  --text-light: #D1D5DB;
+  --bg-white: #111827;
+  --bg-light: #1F2937;
+  --bg-grey: #374151;
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

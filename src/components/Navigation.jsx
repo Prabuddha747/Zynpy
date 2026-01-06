@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion'
+import { useTheme } from '../context/ThemeContext'
+import { HiMoon, HiSun } from 'react-icons/hi'
 import './Navigation.css'
 
 const Navigation = ({ scrollY }) => {
   const isScrolled = scrollY > 50
+  const { isDark, toggleTheme } = useTheme()
 
   return (
     <motion.nav
@@ -24,13 +27,24 @@ const Navigation = ({ scrollY }) => {
           <li><a href="#support">Support</a></li>
         </ul>
 
-        <motion.button
-          className="nav-cta"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Download App
-        </motion.button>
+        <div className="nav-actions">
+          <motion.button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Toggle dark mode"
+          >
+            {isDark ? <HiSun size={20} /> : <HiMoon size={20} />}
+          </motion.button>
+          <motion.button
+            className="nav-cta"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Download App
+          </motion.button>
+        </div>
       </div>
     </motion.nav>
   )

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { FaAndroid, FaApple } from 'react-icons/fa'
 import './FinalCTA.css'
 
 const FinalCTA = () => {
@@ -37,7 +38,9 @@ const FinalCTA = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="btn-icon">🤖</span>
+              <span className="btn-icon">
+                <FaAndroid size={32} />
+              </span>
               <div className="btn-content">
                 <span className="btn-label">Download for</span>
                 <span className="btn-platform">Android</span>
@@ -49,7 +52,9 @@ const FinalCTA = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="btn-icon">🍎</span>
+              <span className="btn-icon">
+                <FaApple size={32} />
+              </span>
               <div className="btn-content">
                 <span className="btn-label">Download for</span>
                 <span className="btn-platform">iOS</span>

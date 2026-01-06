@@ -42,6 +42,10 @@
 .problem-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: var(--gradient-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .problem-text {
@@ -49,6 +53,23 @@
   color: var(--text-dark);
   font-weight: 500;
   line-height: 1.6;
+}
+
+:root.dark .problem-section {
+  background: var(--bg-light);
+}
+
+:root.dark .problem-card {
+  background: var(--bg-white);
+  border-color: var(--bg-grey);
+}
+
+:root.dark .problem-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+:root.dark .problem-icon {
+  color: var(--gradient-blue);
 }
 
 @media (max-width: 768px) {
